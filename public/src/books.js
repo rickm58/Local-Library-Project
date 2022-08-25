@@ -17,11 +17,16 @@ function partitionBooksByBorrowedStatus(books) {
   return combinedArray
 }
 
+function helper(authors, id) {
+  let myAuthor = authors.find(author => author.id === id);
+  return myAuthor;
+}
+
 function getBorrowersForBook({ borrows }, accounts) {
   let myBorrowers = [];
   for (let i = 0; i < borrows.length; i++) {
     let myId = borrows[i].id;
-    let myAccount = findAccountById(accounts, myId);
+    let myAccount = helper(accounts, myId);
     myAccount.returned = borrows[i].returned;
     if (myBorrowers.length <= 9) {
       myBorrowers.push(myAccount);

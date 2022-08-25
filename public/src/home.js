@@ -6,8 +6,7 @@ return total;
 }
 
   
-
-function getTotalAccountsCount(accounts) {
+const getTotalAccountsCount = (accounts) => {
   let totalAccounts = 0;
   for (let account in accounts) {
     if (account) {
